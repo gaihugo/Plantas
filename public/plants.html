@@ -25,11 +25,12 @@
       </audio>
     </div>
 
-    <form action="/action_page.php">
+    <form action="/action_page.php" id="app">
       <label for="pname">Nome Popular:</label><br />
       <input
         type="text"
         id="pname"
+        v-model="fpname"
         name="pname"
         value=""
         placeholder="Samambaia"
@@ -39,45 +40,146 @@
       <input
         type="text"
         id="cname"
+        v-model="fcname"
         name="cname"
         value=""
         placeholder="Nephrolepis exaltata"
       /><br /><br />
 
       <label for="lifeC">Ciclo De Vida:</label><br />
-      <input type="radio" id="anual" name="cicl" value="Anual" />
+      <input
+        type="radio"
+        id="anual"
+        name="cicl"
+        value="Anual"
+        v-model="picked"
+      />
       <label for="anual">Anual</label><br />
-      <input type="radio" id="bianual" name="cicl" value="bianual" />
+      <input
+        type="radio"
+        id="bianual"
+        name="cicl"
+        value="Bianual"
+        v-model="picked"
+      />
       <label for="bianual">Bianual</label><br />
-      <input type="radio" id="perene" name="cicl" value="perene" />
+      <input
+        type="radio"
+        id="perene"
+        name="cicl"
+        value="Perene"
+        v-model="picked"
+      />
       <label for="perene">Perene</label><br /><br />
 
       <label for="lifeC">Reprodução:</label><br />
-      <input type="radio" id="sex" name="repr" value="sexuada" />
+      <input
+        type="radio"
+        id="sex"
+        name="repr"
+        value="Sexuada"
+        v-model="picked2"
+      />
       <label for="sexuada">Sexuada</label><br />
-      <input type="radio" id="asex" name="repr" value="assexuada" />
+      <input
+        type="radio"
+        id="asex"
+        name="repr"
+        value="Assexuada"
+        v-model="picked2"
+      />
       <label for="asex">Assexuada</label><br />
-      <input type="radio" id="bolth" name="repr" value="bolth" />
+      <input
+        type="radio"
+        id="bolth"
+        name="repr"
+        value="Os dois são possiveis"
+        v-model="picked2"
+      />
       <label for="bolth">Os dois são possiveis.</label><br /><br />
 
       <label for="lifeC">Porte Da Planta:</label><br />
-      <input type="radio" id="ar" name="por" value="arvore" />
+      <input type="radio" id="ar" name="por" value="Árvore" v-model="picked" />
       <label for="ar">Árvore</label><br />
-      <input type="radio" id="he" name="por" value="herbacia" />
+      <input
+        type="radio"
+        id="he"
+        name="por"
+        value="Herbácia"
+        v-model="picked3"
+      />
       <label for="he">Herbácia</label><br />
-      <input type="radio" id="arb" name="por" value="arbusto" />
+      <input
+        type="radio"
+        id="arb"
+        name="por"
+        value="Arbusto"
+        v-model="picked3"
+      />
       <label for="arb">Arbusto</label><br />
-      <input type="radio" id="gra" name="por" value="graminea" />
+      <input
+        type="radio"
+        id="gra"
+        name="por"
+        value="Gramínea"
+        v-model="picked3"
+      />
       <label for="gra">Gramínea</label><br /><br />
 
-      <button type="submit" id="send">
+      <button type="submit" id="send" @click="addPlant">
         <i class="far fa-paper-plane"></i> Enviar
       </button>
       <button type="reset" id="reset">
         <i class="fas fa-undo"></i> Resetar
       </button>
+
+      <ul>
+        <li v-for="plant in plantas">
+          <span> {{plant.nomeP}} </span>
+        </li>
+      </ul>
     </form>
 
-    <script></script>
+    <script>
+      function plant(nomeP, nomeC, cicl, repr, port) {
+        return {
+          nomeP,
+          nomeC,
+          cicl,
+          repr,
+          port,
+        };
+      }
+      var app = new Vue({
+        el: "#app",
+        data: {
+          fpname: "",
+          fcname: "",
+          picked: "value",
+          picked2: "value",
+          picked3: "value",
+          plantas: [],
+        },
+        methods: {
+          addPlant: function () {
+            this.plantas = [
+              ...this.plantas,
+              plant(
+                this.fpname,
+                this.fcname,
+                this.picked,
+                this.picked2,
+                this.picked3
+              ),
+            ];
+            this.fpname = "";
+            this.fcname = "";
+            this.picked = "";
+            this.picked2 = "";
+            this.picked3 = "";
+          },
+        },
+      });
+    </script>
   </body>
 </html>
