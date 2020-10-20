@@ -99,7 +99,7 @@
       <label for="bolth">Os dois são possiveis.</label><br /><br />
 
       <label for="lifeC">Porte Da Planta:</label><br />
-      <input type="radio" id="ar" name="por" value="Árvore" v-model="picked" />
+      <input type="radio" id="ar" name="por" value="Árvore" v-model="picked3" />
       <label for="ar">Árvore</label><br />
       <input
         type="radio"
@@ -139,7 +139,7 @@
           <b>Nome Cientifico: </b>{{plant.nomeC}};<br />
           <b>Ciclo: </b>{{plant.cicl}};<br />
           <b>Reprodução: </b>{{plant.repr}};<br />
-          <b>Porte: </b>{{plant.port}}
+          <b>Porte: </b>{{plant.port}}<br /><br />
         </li>
       </ul>
     </div>
@@ -158,9 +158,9 @@
         data: {
           fpname: "",
           fcname: "",
-          picked: "value",
-          picked2: "value",
-          picked3: "value",
+          picked: "",
+          picked2: "",
+          picked3: "",
           plantas: [],
         },
         methods: {
