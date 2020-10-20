@@ -1,0 +1,68 @@
+body {
+  font-family: "Bonbon", cursive;
+  background-image: url("https://i.pinimg.com/originals/dc/44/23/dc44236712db6e11c027f82b5899b280.jpg");
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+#cname {
+  font-family: "Bonbon", cursive;
+  text-align: center;
+  border-radius: 20px;
+  border: 3px solid green;
+}
+
+#pname {
+  font-family: "Bonbon", cursive;
+  text-align: center;
+  border-radius: 20px;
+  border: 3px solid green;
+}
+
+#send {
+  font-family: "Bonbon", cursive;
+  border-radius: 20px;
+  color: aliceblue;
+  background-color: green;
+}
+
+#reset {
+  font-family: "Bonbon", cursive;
+  border-radius: 20px;
+  color: aliceblue;
+  background-color: red;
+}
+input[type="radio"]:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type="radio"]:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: green;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+#audio {
+  text-align: initial;
+}
