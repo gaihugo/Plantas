@@ -133,15 +133,19 @@
         <i class="fas fa-undo"></i> Resetar
       </button>
 
-      <ul id="list">
-        <li v-for="plant in plantas">
-          <b>Nome Popular: </b>{{plant.nomeP}}; <br />
-          <b>Nome Cientifico: </b>{{plant.nomeC}};<br />
-          <b>Ciclo: </b>{{plant.cicl}};<br />
-          <b>Reprodução: </b>{{plant.repr}};<br />
-          <b>Porte: </b>{{plant.port}}<br /><br />
-        </li>
-      </ul>
+      <main>
+        <ul id="list">
+          <h2>Plantas Cadastradas:</h2>
+          <br />
+          <li v-for="plant in plantas">
+            <b>Nome Popular: </b>{{plant.nomeP}}; <br />
+            <b>Nome Cientifico: </b>{{plant.nomeC}};<br />
+            <b>Ciclo: </b>{{plant.cicl}};<br />
+            <b>Reprodução: </b>{{plant.repr}};<br />
+            <b>Porte: </b>{{plant.port}}<br /><br />
+          </li>
+        </ul>
+      </main>
     </div>
     <script>
       function plant(nomeP, nomeC, cicl, repr, port) {
