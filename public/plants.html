@@ -127,10 +127,10 @@
       <label for="gra">Gramínea</label><br /><br />
 
       <button type="submit" id="send" @click="addPlant">
-        <i class="far fa-paper-plane"></i> Enviar
+        <i class="far fa-paper-plane"></i> <b> Enviar</b>
       </button>
       <button type="reset" id="reset">
-        <i class="fas fa-undo"></i> Resetar
+        <i class="fas fa-undo"></i><b> Resetar</b>
       </button>
 
       <main>
@@ -138,10 +138,10 @@
           <h2>Plantas Cadastradas:</h2>
           <br />
           <li v-for="plant in plantas">
-            <b>Nome Popular: </b>{{plant.nomeP}}; <br />
-            <b>Nome Cientifico: </b>{{plant.nomeC}};<br />
-            <b>Ciclo: </b>{{plant.cicl}};<br />
-            <b>Reprodução: </b>{{plant.repr}};<br />
+            <b>Nome Popular: </b>{{plant.nomeP}}<br />
+            <b>Nome Cientifico: </b>{{plant.nomeC}}<br />
+            <b>Ciclo: </b>{{plant.cicl}}<br />
+            <b>Reprodução: </b>{{plant.repr}}<br />
             <b>Porte: </b>{{plant.port}}<br /><br />
           </li>
         </ul>
