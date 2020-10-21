@@ -30,12 +30,25 @@ h1 {
   background-color: green;
 }
 
+#send:hover {
+  color: green;
+  background-color: aliceblue;
+  border-color: green;
+}
+
 #reset {
   font-family: "Bonbon", cursive;
   border-radius: 20px;
   color: aliceblue;
   background-color: red;
 }
+
+#reset:hover {
+  color: red;
+  background-color: aliceblue;
+  border-color: red;
+}
+
 input[type="radio"]:after {
   width: 15px;
   height: 15px;
