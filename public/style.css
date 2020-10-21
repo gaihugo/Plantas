@@ -68,11 +68,18 @@ input[type="radio"]:checked:after {
   text-align: initial;
 }
 
-main {
-  position: absolute;
-  left: 50%;
-  top: 15%;
-  width: 400px;
+#app {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form {
+  flex-grow: 2;
+}
+
+.lista {
+  flex-grow: 1;
   border-radius: 30px;
   background-color: rgba(0, 128, 0, 0.7);
 }
