@@ -89,10 +89,12 @@ input[type="radio"]:checked:after {
 
 .form {
   flex-grow: 2;
+  margin-right: 15px;
 }
 
 .lista {
   flex-grow: 1;
   border-radius: 30px;
+  margin-right: 20px;
   background-color: rgba(0, 128, 0, 0.7);
 }
