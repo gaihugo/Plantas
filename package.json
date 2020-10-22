@@ -1,0 +1,25 @@
+{
+  "name": "plantas",
+  "version": "1.1.0",
+  "description": "plant registration site",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaihugo/Plantas.git"
+  },
+  "author": "Gaiarimm and Tortek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaihugo/Plantas/issues"
+  },
+  "homepage": "https://github.com/gaihugo/Plantas#readme",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  }
+}
