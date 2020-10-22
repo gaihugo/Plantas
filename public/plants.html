@@ -156,6 +156,8 @@
       </div>
     </div>
 
+    <sp></alert>
+
     <script>
       function plant(nomeP, nomeC, cicl, repr, port) {
         return {
@@ -178,6 +180,31 @@
         },
         methods: {
           addPlant: function () {
+            if (this.fpname == "") {
+              alert("Você não insriu nada no campo de Nome Popular!!")
+              return;
+            } else {
+              if (this.fcname == "") {
+                alert("Você não insriu nada no campo de Nome Cientifico!!")
+                return;
+              } else {
+                if (this.picked == "") {
+                  alert("Você não selecinou nada no campo Ciclo de Vida!!")
+                  return;
+                } else {
+                  if (this.picked2 == "") {
+                    alert("Você não selecinou nada no campo Reprodução!!")
+                    return;
+                  } else {
+                    if (this.picked3 == "") {
+                      alert("Você não selecinou nada no campo Porte da Planta!!")
+                      return;
+                    }
+                  }
+                }
+              }
+            }
+
             this.plantas = [
               ...this.plantas,
               plant(
