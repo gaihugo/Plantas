@@ -25,6 +25,7 @@ h1 {
 #send {
   font-family: "Bonbon", cursive;
   border-radius: 20px;
+  border-color: white;
   color: aliceblue;
   background-color: green;
 }
@@ -38,6 +39,7 @@ h1 {
 #reset {
   font-family: "Bonbon", cursive;
   border-radius: 20px;
+  border-color: white;
   color: aliceblue;
   background-color: red;
 }
