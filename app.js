@@ -4,10 +4,16 @@ const bodyParser = require("body-parser"); //Pega o body num formato json legive
 const app = express();
 const port = 3000;
 
-app.use(express.static("public"));
-
 app.use(morgan("dev"));
 
 app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// GET /api/todos => lista de todas as Todos
+app.get("/api/plantas/", (req, res) => {
+  res.json(plantas);
+});
 
 app.listen(port);

@@ -13,6 +13,7 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -112,10 +113,10 @@
           type="radio"
           id="he"
           name="por"
-          value="Herbácia"
+          value="Herbácea"
           v-model="picked3"
         />
-        <label for="he">Herbácia</label><br />
+        <label for="he">Herbácea</label><br />
         <input
           type="radio"
           id="arb"
@@ -174,7 +175,20 @@
           picked: "",
           picked2: "",
           picked3: "",
-          plantas: [],
+          plantas: [
+            {
+              cicl: "Perene",
+              nomeC: "Nephrolepis exaltata",
+              nomeP: "Samambaia",
+              port: "Herbácea",
+              repr: "Assexuada",
+            },
+          ],
+        },
+        mounted() {
+          axios.get("/api/plantas").then((data) => {
+            this.plantas = data.data;
+          });
         },
         methods: {
           addPlant: function () {
