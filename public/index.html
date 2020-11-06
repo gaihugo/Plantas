@@ -158,15 +158,6 @@
     </div>
 
     <script>
-      function plant(nomeP, nomeC, cicl, repr, port) {
-        return {
-          nomeP,
-          nomeC,
-          cicl,
-          repr,
-          port,
-        };
-      }
       var app = new Vue({
         el: "#app",
         data: {
@@ -175,15 +166,7 @@
           picked: "",
           picked2: "",
           picked3: "",
-          plantas: [
-            {
-              cicl: "Perene",
-              nomeC: "Nephrolepis exaltata",
-              nomeP: "Samambaia",
-              port: "Herbácea",
-              repr: "Assexuada",
-            },
-          ],
+          plantas: "",
         },
         mounted() {
           axios.get("/api/plantas").then((data) => {

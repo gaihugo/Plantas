@@ -11,9 +11,24 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+function plant(nomeP, nomeC, cicl, repr, port) {
+  return {
+    nomeP,
+    nomeC,
+    cicl,
+    repr,
+    port,
+  };
+}
+
+var plantas = [
+  plant("Samambaia", "Nephrolepis exaltata", "Perene", "Assexuada", "Herbácea"),
+];
+
 // GET /api/todos => lista de todas as Todos
 app.get("/api/plantas/", (req, res) => {
   res.json(plantas);
+  res.json({ status: "Success" });
 });
 
 app.listen(port);
