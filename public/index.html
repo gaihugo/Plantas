@@ -32,6 +32,7 @@
         <input
           type="text"
           id="pname"
+          class="textbox"
           v-model="fpname"
           name="pname"
           value=""
@@ -42,6 +43,7 @@
         <input
           type="text"
           id="cname"
+          class="textbox"
           v-model="fcname"
           name="cname"
           value=""
@@ -143,8 +145,8 @@
       </div>
 
       <div class="lista">
-        <ul>
-          <h2>Plantas Cadastradas:</h2>
+        <h2>Plantas Cadastradas:</h2>
+        <ul class="sscroll">
           <br />
           <li v-for="plant in plantas">
             <b>Nome Popular: </b>{{plant.nomeP}}<br />
