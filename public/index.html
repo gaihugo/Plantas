@@ -201,17 +201,21 @@
                 }
               }
             }
+            axios
+              .post("/api/plantas/", {
+                answer1: this.fpname,
+                answer2: this.fcname,
+                answer3: this.picked,
+                answer4: this.picked2,
+                answer5: this.picked3,
+              })
+              .then((data) => {
+                //
+                axios.get("/api/plantas").then((data) => {
+                  this.plantas = data.data;
+                });
+              });
 
-            this.plantas = [
-              ...this.plantas,
-              plant(
-                this.fpname,
-                this.fcname,
-                this.picked,
-                this.picked2,
-                this.picked3
-              ),
-            ];
             this.fpname = "";
             this.fcname = "";
             this.picked = "";

@@ -25,9 +25,23 @@ var plantas = [
   plant("Samambaia", "Nephrolepis exaltata", "Perene", "Assexuada", "Herbácea"),
 ];
 
-// GET /api/todos => lista de todas as Todos
+// GET /api/todos => lista de todas as Plantas
 app.get("/api/plantas/", (req, res) => {
   res.json(plantas);
+  res.json({ status: "Success" });
+});
+
+// POST /api/todos => cria uma nova Planta
+app.post("/api/plantas/", (req, res) => {
+  plantas.push(
+    plant(
+      req.body.answer1,
+      req.body.answer2,
+      req.body.answer3,
+      req.body.answer4,
+      req.body.answer5
+    )
+  );
   res.json({ status: "Success" });
 });
 
