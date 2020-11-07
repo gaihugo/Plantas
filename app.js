@@ -11,27 +11,32 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+var indice_atual = 0;
+
+var plantas = [
+  plant("Samambaia", "Nephrolepis exaltata", "Perene", "Assexuada", "Herbácea"),
+];
+
 function plant(nomeP, nomeC, cicl, repr, port) {
+  var id = indice_atual;
+  indice_atual++;
   return {
     nomeP,
     nomeC,
     cicl,
     repr,
     port,
+    id,
   };
 }
 
-var plantas = [
-  plant("Samambaia", "Nephrolepis exaltata", "Perene", "Assexuada", "Herbácea"),
-];
-
-// GET /api/todos => lista de todas as Plantas
+// GET /api/plantas => lista de todas as Plantas
 app.get("/api/plantas/", (req, res) => {
   res.json(plantas);
   res.json({ status: "Success" });
 });
 
-// POST /api/todos => cria uma nova Planta
+// POST /api/plantas => cria uma nova Planta
 app.post("/api/plantas/", (req, res) => {
   plantas.push(
     plant(
@@ -42,6 +47,19 @@ app.post("/api/plantas/", (req, res) => {
       req.body.answer5
     )
   );
+  res.json({ status: "Success" });
+});
+
+// DELETE /api/plantas/5 => Apaga a planta 5
+app.delete("/api/plantas/:id/", (req, res) => {
+  var index = plantas.findIndex((plant) => plant.id == req.params.id);
+
+  if (index == -1) {
+    return res.json({ status: "Not found" });
+  }
+
+  plantas.splice(index, 1);
+
   res.json({ status: "Success" });
 });
 

@@ -148,7 +148,15 @@
         <h2>Plantas Cadastradas:</h2>
         <ul class="sscroll">
           <br />
-          <li v-for="plant in plantas">
+          <li v-for="plant in plantas" id="itemlist">
+            <div class="button">
+              <button id="pencil">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button id="trash" @click="apagar(plant.id)">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </div>
             <b>Nome Popular: </b>{{plant.nomeP}}<br />
             <b>Nome Cientifico: </b>{{plant.nomeC}}<br />
             <b>Ciclo: </b>{{plant.cicl}}<br />
@@ -223,6 +231,15 @@
             this.picked = "";
             this.picked2 = "";
             this.picked3 = "";
+          },
+
+          apagar(id) {
+            axios.delete(`/api/plantas/${id}`).then((data) => {
+              //
+              axios.get("/api/plantas").then((data) => {
+                this.plantas = data.data;
+              });
+            });
           },
         },
       });

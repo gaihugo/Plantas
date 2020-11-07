@@ -124,3 +124,37 @@ input[type="radio"]:checked:after {
 .sscroll::-webkit-scrollbar-corner {
   background-color: transparent;
 }
+
+.button {
+  align-self: left;
+  float: right;
+  margin-right: 10px;
+  margin-top: 50px;
+  border-radius: 300px;
+  border-color: aliceblue;
+}
+#pencil {
+  border-radius: 20px;
+  border-color: white;
+  color: aliceblue;
+  background-color: green;
+}
+
+#pencil:hover {
+  color: green;
+  background-color: aliceblue;
+  border-color: green;
+}
+
+#trash {
+  border-radius: 20px;
+  border-color: white;
+  color: aliceblue;
+  background-color: red;
+}
+
+#trash:hover {
+  color: red;
+  background-color: aliceblue;
+  border-color: red;
+}
