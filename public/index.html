@@ -150,7 +150,7 @@
           <br />
           <li v-for="plant in plantas" id="itemlist">
             <div class="button">
-              <button id="pencil">
+              <button id="pencil" @click="edit(plant.id)">
                 <i class="fas fa-pencil-alt"></i>
               </button>
               <button id="trash" @click="apagar(plant.id)">
@@ -177,6 +177,7 @@
           picked2: "",
           picked3: "",
           plantas: "",
+          editing: -1,
         },
         mounted() {
           axios.get("/api/plantas").then((data) => {
@@ -211,26 +212,61 @@
                 }
               }
             }
-            axios
-              .post("/api/plantas/", {
-                answer1: this.fpname,
-                answer2: this.fcname,
-                answer3: this.picked,
-                answer4: this.picked2,
-                answer5: this.picked3,
-              })
-              .then((data) => {
-                //
-                axios.get("/api/plantas").then((data) => {
-                  this.plantas = data.data;
-                });
-              });
 
-            this.fpname = "";
-            this.fcname = "";
-            this.picked = "";
-            this.picked2 = "";
-            this.picked3 = "";
+            if (this.editing == -1) {
+              axios
+                .post("/api/plantas/", {
+                  answer1: this.fpname,
+                  answer2: this.fcname,
+                  answer3: this.picked,
+                  answer4: this.picked2,
+                  answer5: this.picked3,
+                })
+                .then((data) => {
+                  //
+                  axios.get("/api/plantas").then((data) => {
+                    this.plantas = data.data;
+                  });
+                });
+
+              this.fpname = "";
+              this.fcname = "";
+              this.picked = "";
+              this.picked2 = "";
+              this.picked3 = "";
+            } else {
+              axios
+                .put(`/api/plantas/${this.editing}`, {
+                  answer1: this.fpname,
+                  answer2: this.fcname,
+                  answer3: this.picked,
+                  answer4: this.picked2,
+                  answer5: this.picked3,
+                })
+
+                .then((data) => {
+                  axios.get("/api/plantas").then((data) => {
+                    this.plantas = data.data;
+                  });
+                });
+
+              // Reseta para o modo de adição
+              this.fpname = "";
+              this.fcname = "";
+              this.picked = "";
+              this.picked2 = "";
+              this.picked3 = "";
+              this.editing = -1;
+            }
+          },
+
+          edit(id) {
+            this.editing = id;
+            this.fpname = this.plantas.find((plant) => plant.id == id).nomeP;
+            this.fcname = this.plantas.find((plant) => plant.id == id).nomeC;
+            this.picked = this.plantas.find((plant) => plant.id == id).cicl;
+            this.picked2 = this.plantas.find((plant) => plant.id == id).repr;
+            this.picked3 = this.plantas.find((plant) => plant.id == id).port;
           },
 
           apagar(id) {

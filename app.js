@@ -50,6 +50,20 @@ app.post("/api/plantas/", (req, res) => {
   res.json({ status: "Success" });
 });
 
+// PUT /api/plantas/5 => edita a planta 5
+app.put("/api/plantas/:id/", (req, res) => {
+  // req.params.id
+  var planta = plantas.find((plant) => plant.id == req.params.id);
+
+  planta.nomeP = req.body.answer1 || planta.nomeP;
+  planta.nomeC = req.body.answer2 || planta.nomeC;
+  planta.cicl = req.body.answer3 || planta.cicl;
+  planta.repr = req.body.answer4 || planta.repr;
+  planta.port = req.body.answer5 || planta.port;
+
+  res.json({ status: "Success" });
+});
+
 // DELETE /api/plantas/5 => Apaga a planta 5
 app.delete("/api/plantas/:id/", (req, res) => {
   var index = plantas.findIndex((plant) => plant.id == req.params.id);

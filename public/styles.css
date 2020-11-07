@@ -113,7 +113,7 @@ input[type="radio"]:checked:after {
   height: 6px;
   border: 4px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
-  -webkit-border-radius: 7px;
+  border-radius: 7px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 .sscroll::-webkit-scrollbar-button {
