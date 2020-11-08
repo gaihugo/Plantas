@@ -272,6 +272,12 @@
           apagar(id) {
             axios.delete(`/api/plantas/${id}`).then((data) => {
               //
+              this.fpname = "";
+              this.fcname = "";
+              this.picked = "";
+              this.picked2 = "";
+              this.picked3 = "";
+
               axios.get("/api/plantas").then((data) => {
                 this.plantas = data.data;
               });
