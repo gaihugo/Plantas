@@ -102,10 +102,10 @@ input[type="radio"]:checked:after {
 }
 
 .sscroll {
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   max-height: 600px;
 }
-
 .sscroll::-webkit-scrollbar {
   width: 14px;
 }

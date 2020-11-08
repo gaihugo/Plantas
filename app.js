@@ -33,7 +33,6 @@ function plant(nomeP, nomeC, cicl, repr, port) {
 // GET /api/plantas => lista de todas as Plantas
 app.get("/api/plantas/", (req, res) => {
   res.json(plantas);
-  res.json({ status: "Success" });
 });
 
 // POST /api/plantas => cria uma nova Planta
